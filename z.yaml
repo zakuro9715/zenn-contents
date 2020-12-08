@@ -1,0 +1,10 @@
+tasks:
+  zenn:
+    run: npm run zenn
+    tasks:
+      new:
+        tasks:
+          article:
+            run: npm run zenn -- new:article
+          book:
+            run: npm run zenn -- new:book
