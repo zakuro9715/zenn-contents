@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "zenn": "zenn"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/zakuro9715/zenn-contents.git"
+  },
+  "author": "zakuro <z@kuro.red>",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/zakuro9715/zenn-contents/issues"
+  },
+  "homepage": "https://github.com/zakuro9715/zenn-contents#readme",
+  "dependencies": {
+    "zenn-cli": "^0.1.59"
+  }
+}
