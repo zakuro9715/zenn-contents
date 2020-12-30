@@ -1,3 +1,4 @@
+default: zenn
 tasks:
   zenn:
     run: npm run zenn
