@@ -1,5 +1,5 @@
 ---
-title     : コントリビューターから見た V 言語とその(誇大)広告について
+title     : 開発者から見た V 言語とその(誇大)広告について
 type      : tech
 emoji     : 👀
 topics    : ["v", "vlang"]
