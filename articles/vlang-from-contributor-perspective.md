@@ -132,7 +132,7 @@ V 言語の実装ペースは早く、日々機能が追加されています。
 - [vlang.io](https://vlang.io)
 - [vlang/v](https://github.com/vlang/v)
 
-# 余談
+# 余談: サブプロジェクト
 
 ## volt ってどうなったの？
 
@@ -155,3 +155,7 @@ V 言語で [vOS](https://github.com/vlang/vos) という OS を作ろうとし�
 ## vbrowser
 
 V 言語コミュニティでは [vbrowser](https://github.com/vlang/vbrowser) というブラウザをスクラッチから作ろうというプロジェクトもあります。こちらについてはどれくらい本気なのかは正直よくわかりません。
+
+## V Android Bootstrapper (vab)
+
+V 言語で Android アプリを作るためのツールです。詳しくは試していないのでわかりませんが、実機で動作しているデモは見たので、ある程度は使えるようです。
