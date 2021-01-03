@@ -132,7 +132,9 @@ V 言語の実装ペースは早く、日々機能が追加されています。
 - [vlang.io](https://vlang.io)
 - [vlang/v](https://github.com/vlang/v)
 
-## 余談: volt ってどうなったの？
+# 余談
+
+## volt ってどうなったの？
 
 そもそも V 言語は volt という GUI アプリケーションを作るために開発された言語でした。
 
