@@ -57,7 +57,8 @@ map などでクロージャのようなものを使いたい場合、いった�
 
 クロージャは今後サポートされる方向性ではあります。ただ、議論がそれほど進んでおらず、作者の Alex はじめコアコントリビューターもあまり意見を表明していないため、今後どうなるかは不明です。
 
-## Link
+## リンク
 
 - [The V Programming Language](https://vlang.io)
 - [vlang/v](https://github.com/vlang/v)
+- [Anonymous & high order functions | V Documentation](https://github.com/vlang/v/blob/15ba53be2139ce55cac304896022e7f4958615a6/doc/docs.md#anonymous--high-order-functions)
