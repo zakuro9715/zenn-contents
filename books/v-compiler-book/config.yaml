@@ -1,9 +1,0 @@
-title    : "詳説Ｖコンパイラ"
-summary  : "V言語コンパイラの実装をコードを追いながら解説します"
-topics   : [vlang, compiler]
-published: false
-price    : 0
-chapters :
-  - introduction
-  - tools
-  - scanner
