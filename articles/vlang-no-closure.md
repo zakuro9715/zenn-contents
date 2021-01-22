@@ -6,6 +6,8 @@ topics    : ["vlang"]
 published : true
 ---
 
+## 前置き
+
 V 言語のチェッカが匿名関数をクロージャのように扱っているというバグが修正されました[^1]。
 
 [^1]: [#8232](https://github.com/vlang/v/pull/8232)
