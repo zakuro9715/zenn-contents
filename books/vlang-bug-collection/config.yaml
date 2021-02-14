@@ -1,0 +1,8 @@
+title: "V言語バグコレクション"
+summary: "開発する中で出会ったV言語のバグを紹介します"
+topics: [vlang]
+published: false
+price: 0 # 有料の場合200〜5000
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - introduction
