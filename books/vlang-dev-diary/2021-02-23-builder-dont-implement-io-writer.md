@@ -1,5 +1,5 @@
 ---
-title: '2021/02/03 - strings.Builder が io.Writer を実装していない'
+title: '2021/02/23 - strings.Builder が io.Writer を実装していない'
 ---
 
 V言語において `io.Writer` はかなり忘れられた存在になっている。標準ライブラリの中で実装されていたのは `os.File` くらいだった。

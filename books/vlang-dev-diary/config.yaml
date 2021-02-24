@@ -9,6 +9,6 @@ price: 0 # 有料の場合200〜5000
 # 本に含めるチャプターを順番に並べましょう
 chapters:
   - introduction
-  - 2020-02-22-visibility-bugs
-  - 2020-02-23-builder-dont-implement-io-writer
+  - 2021-02-22-visibility-bugs
+  - 2021-02-23-builder-dont-implement-io-writer
   - licenses
