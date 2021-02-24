@@ -1,0 +1,6 @@
+# vim: set filetype=yaml :
+rules:
+  preset-ja-technical-writing:
+    sentence-length: false
+    max-ten: false
+    ja-no-weak-phrase: false
