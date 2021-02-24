@@ -10,6 +10,7 @@ price: 0 # 有料の場合200〜5000
 chapters:
   - introduction
   - licenses
+  - 2021-02-25-generics-implementation
   - 2021-02-24-if-void-is-valid
   - 2021-02-23-builder-dont-implement-io-writer
   - 2021-02-22-visibility-bugs
