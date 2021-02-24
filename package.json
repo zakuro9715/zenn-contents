@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "zenn": "zenn"
+    "zenn": "zenn",
+    "lint": "textlint"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "homepage": "https://github.com/zakuro9715/zenn-contents#readme",
   "dependencies": {
     "zenn-cli": "^0.1.59"
+  },
+  "devDependencies": {
+    "textlint": "^11.8.2"
   }
 }

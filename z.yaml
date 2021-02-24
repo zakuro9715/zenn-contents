@@ -1,5 +1,6 @@
 default: zenn
 tasks:
+  lint: npm run lint
   zenn:
     run: npm run zenn
     tasks:
