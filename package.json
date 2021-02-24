@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "zenn": "zenn",
-    "lint": "textlint"
+    "lint": "textlint articles books"
   },
   "repository": {
     "type": "git",
