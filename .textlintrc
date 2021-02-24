@@ -4,3 +4,6 @@ rules:
     sentence-length: false
     max-ten: false
     ja-no-weak-phrase: false
+    no-doubled-conjunctive-particle-ga: false
+filters:
+  comments: true
