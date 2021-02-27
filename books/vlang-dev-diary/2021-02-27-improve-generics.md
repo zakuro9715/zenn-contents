@@ -1,5 +1,5 @@
 ---
-title: '2021/02/27 - Generics の誤判定を減らした / コンパイラが命名規則を利用するのは合理的'
+title: '2021/02/27 - Generics の誤判定を減らした / コンパイラによる命名規則の利用'
 ---
 
 [Generics の実装が雑](https://zenn.dev/zakuro9715/books/vlang-dev-diary/viewer/2021-02-25-generics-implementation) で書いたとおり、V 言語は Generics の構文解析がうまくできていなかった。このときに `f<mod.Type>` をパースできないという問題は直したが、書いたとおり `return a < b, c > d` みたいなものを Generics と誤判定するバグは残っていた。
