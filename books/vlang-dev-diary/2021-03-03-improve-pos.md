@@ -2,7 +2,7 @@
 title: '2021/03/02 - pos を修正する地道で大事な仕事'
 ---
 
-私が V言語で積極的に行っている活動の一つに、pos を正しくするというものがある。
+私が V言語で積極的に行っている活動の1つに、pos を正しくするというものがある。
 
 最近の言語では当たり前になりつつあるが、V言語でもエラー表示の際にエラー箇所をアンダーラインで示す。
 
@@ -24,7 +24,9 @@ vlib/v/checker/tests/is_type_invalid.vv:18:5: error: `Cat` doesn't implement met
 
 しかし、V言語が本当に実用言語を目指すのであれば、そういう部分を放置するべきではないと思う。エラー表示はユーザーに見える部分で、そこが明らかに間違えていると言語そのものの印象が悪くなる。
 
+<!-- textlint-disable ja-technical-writing/no-doubled-joshi -->
 また、エラー表示を間違えているということは、実装者がその部分を適当に書いたという可能性が浮上する。実際、pos が間違っていた部分の周辺に、明らかに適当に書いたと思わしき部分があり、別のバグを発見したこともある。何を実装していて、なぜそれをエラーにするのかを正しく理解して書いていれば、エラー表示の範囲を間違えるということはないだろう。
+<!-- textlint-enable -->
 
 - [parser: Improve position of mut receiver waning / error #8240](https://github.com/vlang/v/pull/8240)
 - [checker: improve error position of infix expr #8828](https://github.com/vlang/v/pull/8828)

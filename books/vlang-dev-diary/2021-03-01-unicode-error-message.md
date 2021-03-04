@@ -2,7 +2,9 @@
 title: '2021/03/01 - エラーメッセージのアンダーラインがずれる問題を解決した'
 ---
 
+<!-- textlint-disable ja-technical-writing/no-doubled-joshi -->
 [昨日書いた](https://zenn.dev/zakuro9715/books/vlang-dev-diary/viewer/2021-02-28-east-asian-width)とおり、マルチバイト文字を使うとアンダーラインがずれる問題があります。
+<!-- textlint-enbale -->
 
 ```
 vlib/v/checker/tests/error_with_unicode.vv:5:17: error: cannot use `int literal` as `string` in argument 2 to `f1`
@@ -72,7 +74,7 @@ vlib/v/checker/tests/error_with_unicode.vv:9:6: error: cannot assign to `n`: exp
    11 |     n = '繁體字'
 ```
 
-ちなみにこの実装を書いたところ、CI で `realloc` が落ちるというエラーが発生し、当初これが真剣にわかりませんでしたが、どうやら match が全ケースを map で持っているらしく、range で指定してもその範囲の値を全部持っているので、メモリを食い尽くしていたようです（つまり、`match c { 0...100 {} }` とかくと、0 と 100 だけではなく 0-100 のすべての数値を値として保持するようです。これは将来改善されると思いますが、現状では広い範囲を書くときは `match` を使うとコンパイル時にメモリを使うので避けたほうが良いでしょう。
+ちなみにこの実装を書いたところ、CI で `realloc` が落ちるというエラーが発生し、当初これが真剣にわかりませんでしたが、どうやら match が全ケースを map で持っているらしく、range で指定してもその範囲の値を全部持っているので、メモリを食い尽くしていたようです。つまり、`match c { 0...100 {} }` とかくと、0 と 100 だけではなく 0-100 のすべての数値を値として保持しているわけです。これは将来改善されると思いますが、現状では広い範囲を書くときは `match` を使うとコンパイル時にメモリを使うので避けたほうが良いのかもしれません。
 
 ところで、Unicode の面白さにテストケースを考える楽しみというのがあります。今回のテストケースでは 🐀🐈 と 🐟🐧 という文字列を使用していますが、これは猫がネズミを食べ、ペンギンが魚を食べている様子を表しています。 East_Asian_Width のテストケースには 📛(Tofu on fire) を入れてみたりと、Emoji のテストは遊ぶ余地があり楽しいです。
 
