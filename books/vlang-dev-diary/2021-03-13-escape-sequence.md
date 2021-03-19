@@ -12,7 +12,8 @@ title: '2021/03/13 - V言語はエスケープシーケンスをそのまま C �
 >   00A0 other than 0024 ($), 0040 (@), or 0060 ('), nor one in the range D800 through
 >   DFFF inclusive.62)
 
-また、いくつかのコンパイラは `\u00XX` を Unicode のコードポイントではなく `\xXX` と同じように扱う。
+
+また、仕様上これが utf8 であるとは当然規定されていない。いくつかのコンパイラはこれを utf32 として扱う。V言語の文字列は utf8 なので、それでは困る。
 
 https://github.com/vlang/v/runs/2093700018#step:11:15
 
@@ -22,7 +23,7 @@ https://github.com/vlang/v/runs/2093700018#step:11:15
     Right value: [0xc3, 0x84]
 ```
 
-このため、`\uXXXX` をそのまま Cコンパイラに渡してしまうと、Unicode リテラルとして機能しないケースが発生する。
+よって、`\uXXXX` をそのまま Cコンパイラに渡してしまうと、Unicode リテラルとして機能しないケースが発生する。
 
 [Unicode escaping seems not to work correctly #6317](https://github.com/vlang/v/issues/6317)
 
