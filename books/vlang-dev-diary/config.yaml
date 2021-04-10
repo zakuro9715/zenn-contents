@@ -4,7 +4,7 @@ summary: |-
   日々の開発を日誌にすることで、OSS のコントリビュータがーがどのようなことをしているのかの一端をお見せできればと思います。意外と OSS に参加するハードルは高くない、英語がめちゃくちゃでもなんとかなる、そういったことを感じてもらえれば幸いです。
   もちろん、Ｖ言語の内部実装についても適宜触れています。
 topics: [vlang]
-published: false
+published: true
 price: 0 # 有料の場合200〜5000
 # 本に含めるチャプターを順番に並べましょう
 chapters:
@@ -27,3 +27,4 @@ chapters:
   - 2021-03-13-escape-sequence
   - 2021-03-15-escape-sequence2
   - 2021-03-19-nested-option-call
+  - 2021-04-10-better-generics-struct
