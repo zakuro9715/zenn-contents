@@ -28,3 +28,5 @@ chapters:
   - 2021-03-15-escape-sequence2
   - 2021-03-19-nested-option-call
   - 2021-04-10-better-generics-struct
+  - 2021-04-26-generics-anon-fn-arg.md
+
