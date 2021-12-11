@@ -47,6 +47,12 @@ shellcheck 等を利用すれば、ある程度のポータビリティのチェ
 
 # 現在の状況
 
+# PoC 実装
+
+# PowerShell バックエンド
+
+# Universal バックエンド（星屑スクリプト）
+
 # 展望
 
 # おまけ: Cotowali の未踏性について
