@@ -121,6 +121,17 @@ assert((range(1, 4) |> sum() |> twice()) == 12)
 assert(((1, 2) |> @awk('{print $1 + $2}')) == '3')
 ```
 
+### インラインシェルスクリプト
+
+インラインでシェルスクリプトを記述できます。また、ただ埋め込むだけではなく、`%name` でCotowali で定義した変数を利用できます。
+
+```
+var n = 10
+var text: string
+sh { %text="n = $%n" }
+assert(text == 'n = 10')
+```
+
 # 現在の状況
 
 # PoC 実装
