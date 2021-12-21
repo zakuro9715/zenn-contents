@@ -48,7 +48,7 @@ shellcheck 等を利用すれば、ある程度のポータビリティのチェ
 Cotowali の言語としての特徴は、二つの部分から構成されます。
 
 1. 普通のプログラミング言語としての機能
-2. シェルスクリプトの代替言語としての機能
+2. シェルスクリプトの用途のための機能
 
 ## 普通のプログラミング言語としての機能
 
@@ -76,6 +76,49 @@ fn fizzbuzz(i: int): string {
 for i in range(0, 20) {
   println(fizzbuzz(i))
 }
+```
+
+## シェルスクリプトの用途のための機能
+
+前述のとおり、シェルスクリプトは、コマンドを呼び出しパイプで繋ぐといった用途では他の言語よりも書きやすい優位性があります。
+
+Cotowali ではそれらのシェルスクリプトの機能をサポートします。
+
+### コマンド呼び出し
+
+`@command` で任意のコマンド呼び出しをサポートします。
+
+```
+require 'platform'
+const url = 'https://example.com'
+if platform::has_command('curl') {
+  @curl(url)
+} else if platform::has_command('wget') {
+  @wget('-O', '-', url)
+}
+```
+
+### パイプライン
+
+```
+fn (n: int) |> twice() |> int {
+  return n * 2
+}
+fn ...int |> sum() |> int {
+  var (v, ret): (int, int)
+  while read(&n) {
+    ret += v
+  }
+  return ret
+}
+assert((range(1, 4) |> sum() |> twice()) == 12)
+```
+
+パイプライン演算子自体は他の言語にも存在する機能ですが、Cotowali のパイプライン演算子はそのままシェルスクリプトのパイプラインに変換されます。
+これは、既存のコマンド呼び出しと組み合わせて使用できることを意味します。
+
+```
+assert(((1, 2) |> @awk('{print $1 + $2}')) == '3')
 ```
 
 # 現在の状況
