@@ -188,7 +188,7 @@ Cotowali はポータビリティを重視します。
     println("Hello $name")
     ```
 
-- tar
+- tar.li
     tar コマンドのオプションは覚えていますか？ 熟練のプログラマにとっては常識かもしれませんが、
     少なくとも初心者には正直わかりづらいです。私も毎回調べていました。
 
@@ -198,6 +198,13 @@ Cotowali はポータビリティを重視します。
     `tar::create_to('file.tar', 'dist')` `tar::extract_file('file.tar')` のように使用できます。
 
     現状では、tar コマンドの x(Extract), c(create), f(file), C(dir), z(gzip) に対応する関数がサポートされています。
+
+- platform.li
+    OS やシェル等の判定や、コマンドの存在確認ができます。
+
+- http.li
+    `http::get(url)` が実装されています。curl や wget の複数のコマンドをラップすることでポータビリティのある http リクエストを行えます。
+    また、busybox の wget もサポートします。
 
 # PoC 実装
 
