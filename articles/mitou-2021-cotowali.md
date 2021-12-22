@@ -132,7 +132,35 @@ sh { %text="n = $%n" }
 assert(text == 'n = 10')
 ```
 
-# 現在の状況
+# 利用方法
+
+AdC に合わせて最初のバージョンをリリースしました。インストーラを使用してインストールでき、Linux と macOS をサポートします。
+実用的な言語とは言い難いですが、遊んでいただければ幸いです。
+
+## インストール (Konryu)
+
+インストールにはバージョンマネージャである Konryu を使用します。下記のコマンドを実行し、表示される指示に従うと、lic コマンド(lic)、lish コマンド(REPL) が利用できます。
+
+```
+curl -sSL https://konryu.cotowali.org | sh
+# 以下を .bashrc 等に追加ます
+# export PATH="$HOME/.konryu/bin:$PATH"
+# eval "$(konryu init)"
+```
+
+Konryu は Cotowali 自体で書かれています。
+Cotowali が実用に耐えると言い難いのは事実ですが、しかしバージョンマネージャである Konryu を記述できる程度には動作します。
+
+## Head を試す
+
+現状では Konryu が対象とするのはリリースされたバージョンのみです。
+Cotowali はまだまだ開発中であり、頻繁に変更されます。最新版である Head は、ソースコードからビルドするか、docker を通して使用します。
+
+ソースコードからのビルドは [README](https://github.com/cotowali/cotowali#build-from-source) を参照してください。
+
+docker イメージは `cotowali/cotowali-dev` です。これは Github Action から自動的に push されるため、常に最新の環境です。
+ただし、開発用の環境を含んだイメージであるため、サイズが大きいことに注意してください。
+
 
 # PoC 実装
 
