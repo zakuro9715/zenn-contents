@@ -78,6 +78,55 @@ for i in range(0, 20) {
 }
 ```
 
+```require.li
+// require は単にファイルを読み込みます。module を作ることはありません。
+// また、コンパイル時に処理されるため、source コマンドとは別物です。出力時には単一ファイルになります。
+require 'os'                                           // std / COTOWALI_PATH
+require './mymod'                                      // relative
+require 'github:cotowali/cotowali@main/tests/hello.li' // github
+require 'https://.../hello.li'                         // http
+```
+
+```module.li
+module mod {
+  fn hello() { println("hello mod") }
+}
+
+module mod::submod {
+  fn hello() { println("hello mod::submod") }
+}
+
+mod::hello()
+mod::submod::hello()
+```
+
+```type.li
+// type alias
+type Vec2 = (float, float)
+
+// methods
+fn (v: Vec2) x(): float { return v[0] }
+fn (v: Vec2) y(): float { return v[1] }
+
+// operator overload
+fn (lhs: Vec2) + (rhs: Vec2): Vec2 {
+  return (lhs.x() + rhs.x(), lhs.y() + rhs.y())
+}
+```
+
+```array.li
+// Array は参照ではなく値です。
+
+fn sum(vals: []int): int {
+  var n = 0
+  for v in vals {
+    n += v
+  }
+  return n
+}
+sum([0, 1, 2])
+```
+
 ## シェルスクリプトの用途のための機能
 
 前述のとおり、シェルスクリプトは、コマンドを呼び出しパイプで繋ぐといった用途では他の言語よりも書きやすい優位性があります。
