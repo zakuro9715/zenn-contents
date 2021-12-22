@@ -161,6 +161,10 @@ Cotowali はまだまだ開発中であり、頻繁に変更されます。最�
 docker イメージは `cotowali/cotowali-dev` です。これは Github Action から自動的に push されるため、常に最新の環境です。
 ただし、開発用の環境を含んだイメージであるため、サイズが大きいことに注意してください。
 
+## コンパイラの使用方法
+
+`lic file.li` でコンパイル結果を標準出力に出力します。実行は `lic file.li | sh` あるいは `lic run file.li` です。
+
 
 # PoC 実装
 
