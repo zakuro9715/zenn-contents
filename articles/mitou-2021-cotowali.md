@@ -244,6 +244,21 @@ docker イメージは `cotowali/cotowali-dev` です。これは Github Action 
 
 `lic file.li` でコンパイル結果を標準出力に出力します。実行は `lic file.li | sh` あるいは `lic run file.li` です。
 
+## Playground / オンラインコンパイラ
+
+ちょっと試すために処理系をインストールするのは面倒、という方のために、Playground を用意しています。
+
+https://cotowali.org/play
+
+また、オンラインコンパイル API も用意しているため、処理系がなくても以下のように手元で実行できます
+
+```
+# 現時点では https 非対応 です
+curl http://lic.cotowali.org -d 'println("Hello World")' | sh
+```
+
+Heroku を利用しているため、初回のリクエストには1分程度かかることがあります。また、手動デプロイのため、最新版とは限らないことに注意してください
+
 # 標準ライブラリ
 
 Cotowali はポータビリティを重視します。
