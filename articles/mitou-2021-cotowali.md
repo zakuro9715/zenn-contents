@@ -8,6 +8,12 @@ published : false
 
 この記事は[未踏2021採択者アドカレ！](https://qiita.com/advent-calendar/2021/mitou-2021) の 23 日目の記事です。
 
+# Who are you
+
+[zakuro](https://twitter.com/zakuro9715) です。もともと Web 周りの仕事をしていましたが、いろいろあった結果無職になり、未踏に採択されて今に至ります。
+
+無職になったタイミングで [V言語](https://github.com/vlang/v)の開発に参加し始め、V Organization Mmeber でもあります。
+
 # Cotowali について
 
 [Cotowali](https://cotowali.org) は、2021年度未踏に「[シェルスクリプトへのコンパイルを行う静的型付けスクリプト言語の開発](https://www.ipa.go.jp/jinzai/mitou/2021/gaiyou_tk-3.html)」のテーマで採択され、現在開発中のスクリプト言語です。
@@ -15,6 +21,8 @@ published : false
 https://cotowali.org
 
 https://github.com/cotowali/cotowali
+
+Cotowali コンパイラは V言語で記述されています。Ｖコミュニティ公式ではないプロジェクトとしては規模が大きく、V言語コンパイラのバグ発見にも貢献しています。
 
 ## コンセプト
 
@@ -223,7 +231,7 @@ AdC に合わせて最初のバージョンをリリースしました。イン�
 
 ## インストール (Konryu)
 
-インストールにはバージョンマネージャである Konryu を使用します。下記のコマンドを実行し、表示される指示に従うと、lic コマンド(lic)、lish コマンド(REPL) が利用できます。
+インストールにはバージョンマネージャである [Konryu](https://github.com/cotowali/konryu) を使用します。下記のコマンドを実行し、表示される指示に従うと、koryu コマンド、lic コマンド(コンパイラ)、lish コマンド(REPL) が利用できます。
 
 ```
 curl -sSL https://konryu.cotowali.org | sh
@@ -232,8 +240,38 @@ curl -sSL https://konryu.cotowali.org | sh
 # eval "$(konryu init)"
 ```
 
-Konryu は Cotowali 自体で書かれています。
-Cotowali が実用に耐えると言い難いのは事実ですが、しかしバージョンマネージャである Konryu を記述できる程度には動作します。
+正常にインストールが完了し、PATH を正しく通していれば、以下のコマンドで Hello World が実行できます。
+
+```
+echo 'println("Hello World")' | lic run
+```
+
+konryu の使い方は help を参照してください^[なお、コマンドを実行した際、単に http error と表示されることがあります。これは GitHub API のレートリミットの可能性が非常に高いです。Konryu では 1 コマンドで最大 1 回の API アクセスを行います。GitHub トークンの設定や結果のキャッシュは今のところ未実装です。]
+
+```
+Konryu - Cotowali installer and version manager
+
+Usage: kornyu [options] [command] [version]
+
+Options:
+  -h --help - Print help message
+
+Commands:
+  help      - Print help message
+  init      - Print shell code to configure environment
+  install   - Install cotowali release
+  uninstall - Uninstall specified version
+  use       - Use specified version
+  releases  - List available cotowali releases
+  versions  - List installed cotowali versions
+
+  update  - Update konryu
+  destroy - Destroy konryu and all installed files
+```
+
+Konryu は Cotowali 自体で書かれています。現在はリリースが一つしかないため、実質的にインストーラとしての役割しかありませんが、新しいバージョンがリリースされた場合、Konryu からインストールし、またバージョンを切り替えることができます。
+
+Konryu はまさに Cotowali のターゲットとするユースケースであり、最初のリリースのためのマイルストーンでした。このようなスクリプトを記述できる程度には、あ Cotowali が動作することを示せているはずです。
 
 ## Head を試す
 
