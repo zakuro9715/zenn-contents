@@ -8,12 +8,6 @@ published : true
 
 この記事は[未踏2021採択者アドカレ！](https://qiita.com/advent-calendar/2021/mitou-2021) の 23 日目の記事です。
 
-# Who are you
-
-[zakuro](https://twitter.com/zakuro9715) です。もともと Web 周りの仕事をしていましたが、いろいろあった結果無職になり、未踏に採択されて今に至ります。
-
-無職になったタイミングで [V言語](https://github.com/vlang/v)の開発に参加し始め、V Organization Mmeber でもあります。
-
 # Cotowali について
 
 [Cotowali](https://cotowali.org) は、2021年度未踏に「[シェルスクリプトへのコンパイルを行う静的型付けスクリプト言語の開発](https://www.ipa.go.jp/jinzai/mitou/2021/gaiyou_tk-3.html)」のテーマで採択され、現在開発中のスクリプト言語です。
@@ -22,7 +16,7 @@ https://cotowali.org
 
 https://github.com/cotowali/cotowali
 
-Cotowali コンパイラは V言語で記述されています。Ｖコミュニティ公式ではないプロジェクトとしては規模が大きく、V言語コンパイラのバグ発見にも貢献しています。
+Cotowali コンパイラは [V言語](https://vlang.io)で記述されています。Ｖコミュニティ公式ではないプロジェクトとしては規模が大きく、V言語コンパイラのバグ発見にも貢献しています。^[少なくとも今年度に入って以降の V言語へのコントリビューションはほぼ Cotowali の開発中に発見されたバグの修正であり、数えてみると 50 PR ほど送っていました]
 
 ## コンセプト
 
