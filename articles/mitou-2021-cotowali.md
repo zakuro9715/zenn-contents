@@ -1,5 +1,5 @@
 ---
-title     : 静的型付けスクリプト言語 Cotowali
+title     : 静的型付きスクリプト言語 Cotowali
 type      : tech
 emoji     : 📜
 topics    : [自作言語]
@@ -10,7 +10,7 @@ published : true
 
 # Cotowali について
 
-[Cotowali](https://cotowali.org/ja) は、2021年度未踏に「[シェルスクリプトへのコンパイルを行う静的型付けスクリプト言語の開発](https://www.ipa.go.jp/jinzai/mitou/2021/gaiyou_tk-3.html)」のテーマで採択され、現在開発中のスクリプト言語です。
+[Cotowali](https://cotowali.org/ja) は、2021年度未踏に「[シェルスクリプトへのコンパイルを行う静的型付けスクリプト言語の開発](https://www.ipa.go.jp/jinzai/mitou/2021/gaiyou_tk-3.html)」のテーマで採択され、現在開発中のスクリプト言語です^[静的型付「き」言語が正しいというご指摘をいただき、記事のタイトルは修正しました。ただ、採択テーマ名は静的型付「け」言語です。過去に戻って自分に教えてあげたい。]
 
 https://cotowali.org/ja
 
@@ -240,7 +240,7 @@ curl -sSL https://konryu.cotowali.org | sh
 echo 'println("Hello World")' | lic run
 ```
 
-konryu の使い方は help を参照してください^[なお、コマンドを実行した際、単に http error と表示されることがあります。これは GitHub API のレートリミットの可能性が非常に高いです。Konryu では 1 コマンドで最大 1 回の API アクセスを行います。GitHub トークンの設定や結果のキャッシュは今のところ未実装です。]
+konryu の使い方は help を参照してください^[コマンドを実行した際、単に http error と表示されることがあります。これは GitHub API のレートリミットの可能性が非常に高いです。Konryu では 1 コマンドで最大 1 回の API アクセスを行います。GitHub トークンの設定や結果のキャッシュは今のところ未実装です。]
 
 ```
 Konryu - Cotowali installer and version manager
