@@ -370,7 +370,6 @@ function hello() {
 hello
 
 function __END_HEREDOC__() {}
-
 __END_HEREDOC__
 
 ```
