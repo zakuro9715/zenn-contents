@@ -358,7 +358,7 @@ hello() {
   echo 'hello'
 }
 
-hello_sh
+hello
 
 : << '__END_HEREDOC__'
 "@ > $null
