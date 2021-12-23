@@ -64,7 +64,7 @@ Cotowali の言語としての特徴は、二つの部分から構成されま�
 
 サンプルコードをいくつか見てみましょう。このような、比較的普通に見える文法の言語がシェルスクリプトに変換されます。
 
-```fizzbuzz.li
+```cotowali:fizzbuzz.li
 fn fizzbuzz(i: int): string {
   if i % 3 == 0 && i % 5 == 0 {
     return 'fizzbuzz'
@@ -82,7 +82,7 @@ for i in range(0, 20) {
 }
 ```
 
-```require.li
+```cotowali:require.li
 // require は単にファイルを読み込みます。module を作ることはありません。
 // また、コンパイル時に処理されるため、source コマンドとは別物です。出力時には単一ファイルになります。
 require 'os'                                           // std / COTOWALI_PATH
@@ -91,7 +91,7 @@ require 'github:cotowali/cotowali@main/tests/hello.li' // github
 require 'https://.../hello.li'                         // http
 ```
 
-```module.li
+```cotowali:module.li
 module mod {
   fn hello() { println("hello mod") }
 }
@@ -104,7 +104,7 @@ mod::hello()
 mod::submod::hello()
 ```
 
-```type.li
+```cotowali:type.li
 // type alias
 type Vec2 = (float, float)
 
@@ -118,7 +118,7 @@ fn (lhs: Vec2) + (rhs: Vec2): Vec2 {
 }
 ```
 
-```array.li
+```cotowali:array.li
 // Array は参照ではなく値です。
 
 fn sum(vals: []int): int {
@@ -141,7 +141,7 @@ Cotowali ではそのようなシェルスクリプトの機能を取り入れ�
 
 `@command` で任意のコマンド呼び出しをサポートします。
 
-```
+```cotowali:command.li
 require 'platform'
 const url = 'https://example.com'
 if platform::has_command('curl') {
@@ -153,7 +153,7 @@ if platform::has_command('curl') {
 
 ### パイプライン
 
-```
+```cotowali:pipeline.li
 fn (n: int) |> twice() |> int {
   return n * 2
 }
@@ -169,13 +169,13 @@ assert((range(1, 4) |> sum() |> twice()) == 12)
 
 パイプライン演算子自体は他の言語にも存在する機能ですが、Cotowali のパイプライン演算子はそのままシェルスクリプトのパイプラインに変換されます。これは、既存のコマンド呼び出しと組み合わせて使用できることを意味します。
 
-```
+```cotowali
 assert(((1, 2) |> @awk('{print $1 + $2}')) == '3')
 ```
 
 シェルスクリプトでは行ごとの操作を行うことが多いです。これを反映したものが `...int` のような sequence 型であり、シェルスクリプトと同様にパイプでつなげて行ごとに処理する書き方ができます。
 
-```
+```cotowali
 println(
   cat(data.txt)
     |> filter('foo')
@@ -191,7 +191,7 @@ println(
 
 現状では分かりやすさを優先して標準出力をファイルに書き込むリダイレクトのみをサポートしています。現時点では `2>&1` 等に相当するものはサポートしていません。
 
-```
+```cotowali:redirect.li
 10 |>  'data.txt' // echo 10 > data.txt
 20 |>> 'data.txt' // echo 20 >> data.txt
 
@@ -205,7 +205,7 @@ do_something() |> null // redirect to '/dev/null'
 
 インラインでシェルスクリプトを記述できます。また、ただ埋め込むだけではなく、`%name` でCotowali で定義した変数を利用できます。
 
-```
+```cotowali:inline_shell.li
 var n = 10
 var text: string
 sh { %text="n = $%n" }
@@ -227,7 +227,7 @@ AdC に合わせて最初のバージョンをリリースしました。イン�
 
 インストールにはバージョンマネージャである [Konryu](https://github.com/cotowali/konryu) を使用します。下記のコマンドを実行し、表示される指示に従うと、konryu コマンド、lic コマンド(コンパイラ)、lish コマンド(REPL) が利用できます。
 
-```
+```sh
 curl -sSL https://konryu.cotowali.org | sh
 # 以下を .bashrc 等に追加します
 # export PATH="$HOME/.konryu/bin:$PATH"
@@ -236,7 +236,7 @@ curl -sSL https://konryu.cotowali.org | sh
 
 正常にインストールが完了し、PATH を正しく通していれば、以下のコマンドで Hello World が実行できます。
 
-```
+```sh
 echo 'println("Hello World")' | lic run
 ```
 
@@ -377,13 +377,15 @@ __END_HEREDOC__
 
 このバックエンドは、以下のように使用できます。
 
-```
+```sh
 echo 'println("hello")' | lic -b ush > hello.ush
 
 sh hello.ush
 # or
 pwsh hello.pwsh
 ```
+
+詳しい解説は省きますが、意外と仕組みはシンプルです。
 
 # 最後に
 
