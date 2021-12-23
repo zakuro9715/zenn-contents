@@ -10,9 +10,9 @@ published : true
 
 # Cotowali について
 
-[Cotowali](https://cotowali.org) は、2021年度未踏に「[シェルスクリプトへのコンパイルを行う静的型付けスクリプト言語の開発](https://www.ipa.go.jp/jinzai/mitou/2021/gaiyou_tk-3.html)」のテーマで採択され、現在開発中のスクリプト言語です。
+[Cotowali](https://cotowali.org/ja) は、2021年度未踏に「[シェルスクリプトへのコンパイルを行う静的型付けスクリプト言語の開発](https://www.ipa.go.jp/jinzai/mitou/2021/gaiyou_tk-3.html)」のテーマで採択され、現在開発中のスクリプト言語です。
 
-https://cotowali.org
+https://cotowali.org/ja
 
 https://github.com/cotowali/cotowali
 
