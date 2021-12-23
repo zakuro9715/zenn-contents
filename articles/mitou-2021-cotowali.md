@@ -210,6 +210,12 @@ sh { %text="n = $%n" }
 assert(text == 'n = 10')
 ```
 
+## その他の構文
+
+詳細は[ドキュメント](https://cotowali.org/ja/docs/getting-started/)を参照してください、と言いたいところなのですが、そちらの方には手が回っておらず十分ではありません。一応ある程度までは記述してあるため、参考程度にはなると思います。
+
+より詳細について知りたい場合は、[テスト](https://github.com/cotowali/cotowali/tree/main/tests)および[標準ライブラリ](https://github.com/cotowali/cotowali/tree/main/std)を参照してください。
+
 # 利用方法
 
 AdC に合わせて最初のバージョンをリリースしました。インストーラを使用してインストールでき、Linux と macOS をサポートします。
