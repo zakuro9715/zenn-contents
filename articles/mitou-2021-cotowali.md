@@ -337,6 +337,42 @@ Cotowali はポータビリティを重視します。
     `http::get(url)` が実装されています。curl や wget の複数のコマンドをラップすることでポータビリティのある http リクエストを行えます。
     また、busybox の wget もサポートします。
 
+# 非シェルスクリプトバックエンド
+
+Cotowali はポータビリティを重視しています。それを標榜する以上は必然的に、シェルスクリプトを出力するだけでは足りません。
+
+まだ部分的にしか動作しませんが、非シェルスクリプトのバックエンドの実験的な実装も存在します。
+
+## PowerShell バックエンド
+
+まず当然挙がるのが PowerShell です。PowerShell バックエンドは、文法上は 8割程度まで動作します。現状でテストされているのは Linux 版の PowerShell ですが、当然目的は Windows の PowerShell のサポートです。
+
+## Universal バックエンド
+
+少し不思議なバックエンドです。以下のコードはこのバックエンドの出力を簡略化したものです。
+
+```hello.ush
+echo " \`" > /dev/null # " @"
+
+hello() {
+  echo 'hello'
+}
+
+hello_sh
+
+: << '__END_HEREDOC__'
+"@ > $null
+
+function hello() {
+  'hello' | write-output
+}
+
+hello
+function __END_HEREDOC__() {}
+__END_HEREDOC__
+
+```
+
 # 最後に
 
 未踏で開発中の言語 Cotwali についての簡単な紹介でした。
