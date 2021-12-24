@@ -381,7 +381,10 @@ echo 'println("hello")' | lic -b ush > hello.ush
 
 sh hello.ush
 # or
-pwsh hello.pwsh
+pwsh hello.ush
+# or
+cp hello.ush hello.ush.ps1
+PowerShell.exe -ExecutionPolicy ByPass -f hello.ush.ps1
 ```
 
 詳しい解説は省きますが、意外と仕組みはシンプルです。
