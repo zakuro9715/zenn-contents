@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/zakuro9715/zenn-contents#readme",
   "dependencies": {
-    "zenn-cli": "^0.1.59"
+    "zenn-cli": "^0.1.148"
   },
   "devDependencies": {
     "textlint": "^11.8.2",
