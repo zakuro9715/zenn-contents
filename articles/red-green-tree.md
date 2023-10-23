@@ -6,7 +6,7 @@ published: false
 
 ## 概要
 
-本記事では、近年採用されるケースが増えた Red Green Tree あるいは Lossless Syntax Tree と呼ばれる構文木について解説します。
+本記事では、新しい言語処理系でしばしば称されている Red Green Tree あるいは Lossless Syntax Tree と呼ばれる構文木について解説します。
 
 ### 発明と浸透
 
@@ -22,48 +22,58 @@ published: false
 - oil-shell
 - biome(旧rome)
 
-## 名称
+### 名称
 
-このデータ構造は、Red Green Tree あるいは Lossless Syntax Tree と呼ばれています。ただし、Red Green Tree という名称は浸透しておらず、Lossless Syntax Tree という名称は、名称というよりも特徴を表すタイトルとして使用されているように感じます。
+Lossless Syntax Tree と Red Green Tree の二つの名称には微妙な違いがあります。
 
-よって、このデータ構造に統一的な名称はありません。手法自体は浸透していますが、それぞれが独自の名称を使用したり、あるいは特に名前を付けていなかったりします。
+Red Green Tree とは Roslyn で発明されたデータ構造であり、本記事で解説するものです。
 
-実装のみが引き継がれた結果、統一的な名前が付かなかったのかもしれません。
+Lossless Syntax Tree とは、その名前の通り Lossless であることに着目します。Red Green Tree またはそれに近いデータ構造であることが多いですが、この名前で言及されているものは必ずしも Red Green Tree であるとは限りません。
 
-Red Green Trees という名前は、Roslyn でのアイデア発案時に使用されたようですが、前述のとおりあまり浸透していません。
+## 解説
 
-Lossless Syntax Tree という名前が使用されるケースもあります。この名前は Lossless であることを表すため、厳密には Red Green Tree のみを指すものではないと考えられます。しかし、ほとんどの場合で Losless Syntax Tree は Red Green Tree を指しています。
+まずは Red Green Tree の概略図を見てみましょう。基本的な構造はこの図から抑えられると思います。
 
-Lossless Syntax Tree は必ずしも Red Green Tree を指すとは限らないこと、実装の解説で RedNode や GreenNode といった単語を使用することから、本記事においては原則として Red Green Tree の名前を使用します。
+全体を把握したうえで、この構造の特徴とメリットについて解説し、各種操作等の細部の開設へと移ります。
 
-## 前提知識
 
-### AST と CST
+### 概略図
 
-言語処理系において、もっともよく使用されるのが AST(Abstract Syntax Tree) です。
+```typescript
+interface RedNode {
+    parent: RedNode
+    green: GreenNode
+}
 
-ところで、AST とはどういうものでしょうか。当たり前に使用されすぎて考えることもなかったかもしれませんが、一度振り返ってみましょう。
+interface GreenNode {
+    text_len: number // u32
+    children: Array<GreenNode | Token>
+}
 
-AST とは Abstrcat Syntax Tree であり、日本語では抽象構文木です。つまり、なにか抽象化された構文木ということです。
-
-対照的なものとして、CST があります。CST は Concrete Syntax Tree であり、具象構文木です。
-
-この二つをまとめたのが以下の図です。
-
+type Syntaxkind = number // u32
+interface Token {
+    kind: SyntaxXind
+    text: string
+}
 ```
-図
+
+```mermaid
+graph TB
+    subgraph green
+        Op --> Lhs[kind:int text:1]
+        Op[kind:+ text:+]
+        Op --> Rhs[kind:int text:1]
+    end
+    subgraph red
+        RhsRed --> |parent| OpRed
+        OpRed[Red] --> Op
+        LhsRed[Red] --> Lhs
+        LhsRed --> |parent| OpRed
+        RhsRed[Red] --> Rhs
+    end
+    style red fill:#a11
+    style green fill:#1a1
 ```
-
-抽象構文木の方が情報が減っているのがわかります。つまり、抽象化しているのです。
-
-普段使われる AST では、抽象化のレベルはもう少し低くなります。たとえば、エラー位置を表示するために位置情報は必要です。
-
-しかし、一定の抽象化は行われ、ソースコードの時点から失われる情報があります。つまり、AST からは元のソースコードが正確にはわかりません。
-
-具象構文木は、抽象構文木よりも多くの情報を持っています。元のソースコードを復元できるかは実装次第です。
-
-Lossless Syntax Tree の Lossless とは、元のソースコードから情報を失わないという意味です。
-
 
 # Green Node
 
