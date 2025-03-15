@@ -28,7 +28,7 @@ CSS をある程度知っている人は見ればわかると思うので、簡�
 	- サイズは `h-dvh` で `height: 100dvh` を指定する。
 	- `h-screen` や `height: 100vh` は特定のケースで期待した動作をしない。
 		https://studio.design/ja/whats-new/viewport
-- ヘッダは `position: sticky` を使うのが楽。
+- ヘッダは [`position: sticky`](https://developer.mozilla.org/ja/docs/Web/CSS/position#sticky) を使うのが楽。
 - スクロールする要素内にも `sticky` を使うことで、常時表示される要素を作れる。
 
 ## 元ネタ
