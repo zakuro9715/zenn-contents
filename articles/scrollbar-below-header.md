@@ -28,6 +28,8 @@ CSS をある程度知っている人は見ればわかると思うので、簡�
 	- サイズは `h-dvh` で `height: 100dvh` を指定する。
 	- `h-screen` や `height: 100vh` は特定のケースで期待した動作をしない。
 		https://studio.design/ja/whats-new/viewport
+- スクロールする要素は、`overflow-y: auto` に加えて、高さは決定されるようにすること。要素が伸びてしまうと、overflow しなくなってしまう。
+	サンプルの場合は親が高さ固定の flex なので、要素の高さが決まっている。
 - ヘッダは [`position: sticky`](https://developer.mozilla.org/ja/docs/Web/CSS/position#sticky) を使うのが楽。
 - スクロールする要素内にも `sticky` を使うことで、常時表示される要素を作れる。
 
